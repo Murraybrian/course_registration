@@ -7,14 +7,32 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
             display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #007bff;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
         .sidenav {
             height: 100vh;
             width: 200px;
             position: fixed;
+            top: 60px; /* Adjust based on header height */
             background-color: #f4f4f4;
             padding: 15px;
+            z-index: 900;
         }
         .sidenav a {
             display: block;
@@ -27,11 +45,101 @@
         }
         .main-content {
             margin-left: 220px;
+            margin-top: 80px; /* Adjust based on header height */
             padding: 20px;
+            flex: 1;
+        }
+        .login-container {
+            width: 300px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: auto;
+            text-align: center;
+        }
+        .login-container label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .login-container button {
+            width: 48%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        .login-container button:nth-child(2) {
+            background-color: #28a745;
+        }
+        .login-container button:hover {
+            opacity: 0.9;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+        .registration-container {
+            width: 300px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: auto;
+            text-align: center;
+        }
+        .registration-container label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        .registration-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .registration-container button {
+            width: 48%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        .registration-container button:hover {
+            opacity: 0.9;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f4f4f4;
+            font-size: 12px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
         }
     </style>
 </head>
 <body>
+
+<header>
+    ONLINE COURSE REGISTRATION
+</header>
 
 <div class="sidenav">
     <h3>Navigation</h3>
@@ -39,13 +147,17 @@
     <a href="/profile">Profile</a>
     <a href="/course_search">Course Search</a>
     <a href="/registered_courses">Registered Courses</a>
-    <a href="/login">Login</a>
     <a href="/logout">Logout</a>
 </div>
 
 <div class="main-content">
     {% block content %}{% endblock %}
 </div>
+
+<footer>
+    Online Course Registration Project 2024 - CMSC 495<br>
+    Shapiro, Brian / Murray, Brian / Angelozzi, Brian / Beatty, Sidney
+</footer>
 
 </body>
 </html>
