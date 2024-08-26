@@ -5,14 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-
-    <title>Student Login</title>
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <link href="assets/css/style.css" rel="stylesheet" />
 </head>
 <body>
-    <?php include('includes/header.php');?>
+    <div id="header"></div>
     <div class="content-wrapper">
         <div class="container">
             <div class="row">
@@ -22,7 +17,7 @@
                 </div>
 
             </div>
-             <span style="color:red;" ><?php echo htmlentities($_SESSION['errmsg']); ?><?php echo htmlentities($_SESSION['errmsg']="");?></span>
+             <span style="color:red;" id="errorMessage"></span>
             <form name="admin" method="post">
             <div class="row">
                 <div class="col-md-6">
@@ -33,7 +28,7 @@
                         <hr />
                         <button type="submit" name="submit" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;Login </button>&nbsp;
                         <!-- Add the Register button here -->
-                        <button type="button" class="btn btn-success" onclick="window.location.href='register.php'">Register</button>
+                        <button type="button" class="btn btn-success" onclick="window.location.href='register.html'">Register</button>
                 </div>
                 </form>
 
