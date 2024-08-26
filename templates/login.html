@@ -7,31 +7,43 @@
     <meta name="author" content="" />
 </head>
 <body>
-    <div id="header"></div>
+    <div id="header"></div> <!-- Header will be loaded here -->
+    
     <div class="content-wrapper">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <h4 class="page-head-line">Please Login To Enter </h4>
-
                 </div>
-
             </div>
-             <span style="color:red;" id="errorMessage"></span>
+            <span style="color:red;" id="errorMessage"></span>
             <form name="admin" method="post">
-            <div class="row">
-                <div class="col-md-6">
-                     <label>Enter Email : </label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Enter Email : </label>
                         <input type="text" name="email" class="form-control"  />
                         <label>Enter Password :  </label>
                         <input type="password" name="password" class="form-control"  />
                         <hr />
-                        <button type="submit" name="submit" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> &nbsp;Login </button>&nbsp;
-                        <!-- Add the Register button here -->
+                        <button type="submit" name="submit" class="btn btn-info">
+                            <span class="glyphicon glyphicon-user"></span> &nbsp;Login
+                        </button>&nbsp;
                         <button type="button" class="btn btn-success" onclick="window.location.href='register.html'">Register</button>
+                    </div>
                 </div>
-                </form>
-
-            </div>
+            </form>
         </div>
     </div>
+
+    <!-- Load the header.html with JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            fetch('includes/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+        });
+    </script>
+</body>
+</html>
