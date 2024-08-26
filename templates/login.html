@@ -34,8 +34,9 @@
             </form>
         </div>
     </div>
-
-    <!-- Load the header.html with JavaScript -->
+    <div id="footer"></div> <!-- Footer will be loaded here -->
+    
+    <!-- Load header.html -->
     <script>
         document.addEventListener("DOMContentLoaded", function(){
             fetch('includes/header.html')
@@ -45,6 +46,16 @@
             });
         });
     </script>
-    <div id="footer"></div>
+    
+    <!-- Load footer.html -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+        fetch('includes/footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer').innerHTML = data;
+        });
+    });
+    </script>
 </body>
 </html>
