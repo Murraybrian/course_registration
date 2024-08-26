@@ -1,8 +1,26 @@
 {% extends 'layout.html' %}
 
-{% block title %}Home Page{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block content %}
-<h1>Welcome to the Home Page</h1>
-<p>This is the main page of our Flask app.</p>
+<div class="login-container">
+    <h1>Login to continue:</h1>
+
+    <form method="post" action="{{ url_for('login') }}">
+        <label for="email">Student Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Student Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        {% if error %}
+        <p class="error-message">{{ error }}</p>
+        {% endif %}
+
+        <div style="display: flex; justify-content: space-between;">
+            <button type="submit">Login</button>
+            <button type="button" onclick="location.href='{{ url_for('register') }}'">Register</button>
+        </div>
+    </form>
+</div>
 {% endblock %}
